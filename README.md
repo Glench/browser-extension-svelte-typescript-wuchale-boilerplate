@@ -1,6 +1,6 @@
-# Svelte Typescript Chrome Extension Boilerplate
+# Svelte Typescript Browser Extension with Translations Boilerplate
 
-Boilerplate for Chrome Extension Svelte Typescript project.
+Boilerplate for Browser Extension Svelte Typescript project. This fork is cross-browser compatible and includes a way to translate strings.
 
 ## Features
 
@@ -9,6 +9,7 @@ Boilerplate for Chrome Extension Svelte Typescript project.
 -   [Vite](https://vitejs.dev/)
 -   [CRXJS Vite Plugin](https://github.com/crxjs/chrome-extension-tools/blob/main/packages/vite-plugin/README.md)
 -   [Chrome Extensions Manifest V3](https://developer.chrome.com/docs/extensions/mv3/intro/)
+-   [Wuchale for translations](https://github.com/wuchalejs/wuchale)
 
 ## Demo
 
