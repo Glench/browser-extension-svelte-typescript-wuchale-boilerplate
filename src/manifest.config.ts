@@ -12,8 +12,8 @@ const [major, minor, patch] = version
 
 export default defineManifest(async () => ({
     manifest_version: 3,
-    name: "Chrome Extension Svelte Typescript Boilerplate",
-    description: "Boilerplate for Chrome Extension Svelte Typescript project",
+    name: packageJson.name,
+    description: packageJson.description,
     version: `${major}.${minor}.${patch}`,
     version_name: version,
     icons: {
