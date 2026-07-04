@@ -1,11 +1,23 @@
 <script lang="ts">
     import { count } from "../storage";
     import Options from "./Options.svelte";
+    import { loadLocale } from 'wuchale/load-utils'
+    // so that the loaders are registered first
+    import '../locales/main.loader.svelte.js'
+
+    // you can use any state from anywhere for the locale
+    let locale = chrome.i18n.getUILanguage()
 </script>
 
-<div class="overlay">
-    <Options {count} />
-</div>
+{#await loadLocale(locale)}
+    <div class="overlay">
+        ...
+    </div>
+{:then}
+    <div class="overlay">
+        <Options {count} />
+    </div>
+{/await}
 
 <style>
     .overlay {

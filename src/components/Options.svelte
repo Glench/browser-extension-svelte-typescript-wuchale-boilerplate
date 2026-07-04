@@ -4,17 +4,29 @@
     interface Props {
         count: Writable<number>;
     }
+    import { loadLocale } from 'wuchale/load-utils'
+    // so that the loaders are registered first
+    import '../locales/main.loader.svelte.js'
+
+    // you can use any state from anywhere for the locale
+    let locale = chrome.i18n.getUILanguage()
 
     let { count }: Props = $props();
 </script>
 
-<div class="container">
-    <p>Current count: <b>{$count}</b></p>
-    <div>
-        <button onclick={() => ($count -= 1)}>-</button>
-        <button onclick={() => ($count += 1)}>+</button>
+{#await loadLocale(locale)}
+    <div class="container">
+        ...
     </div>
-</div>
+{:then}
+    <div class="container">
+        <p>Current count: <b>{$count}</b></p>
+        <div>
+            <button onclick={() => ($count -= 1)}>-</button>
+            <button onclick={() => ($count += 1)}>+</button>
+        </div>
+    </div>
+{/await}
 
 <style>
     .container {
