@@ -1,6 +1,6 @@
 # Svelte Typescript Browser Extension with Translations Boilerplate
 
-Boilerplate for Browser Extension Svelte Typescript project. This fork is cross-browser compatible and includes a way to translate strings.
+This is a fork of [this Chrome extension with Svelte and Typescript boilerplate](https://github.com/NekitCorp/chrome-extension-svelte-typescript-boilerplate). This fork is meant to add Wuchale for translations and hopefully make it cross-browser compatible to some extent.
 
 ## Features
 
@@ -25,7 +25,13 @@ Boilerplate for Browser Extension Svelte Typescript project. This fork is cross-
 # install dependencies
 npm i
 
-# build files to `/dist` directory
+# init wuchale
+npx wuchale
+
+# optionally add Gemini API key for AI translations
+export GEMINI_API_KEY=your_api_key
+
+ #build files to `/dist` directory
 # HMR for extension pages and content scripts
 npm run dev
 ```
