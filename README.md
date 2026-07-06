@@ -31,7 +31,11 @@ npx wuchale
 # optionally add Gemini API key for AI translations
 export GEMINI_API_KEY=your_api_key
 
- #build files to `/dist` directory
+# export wuchale's .po files into web extension-compatible messages.json files
+# in case you want to use them outside your svelte components, such as in manifest.json
+npm run write_locales
+
+# build files to `/dist` directory
 # HMR for extension pages and content scripts
 npm run dev
 ```

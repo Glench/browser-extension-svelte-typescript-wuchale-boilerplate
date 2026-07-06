@@ -1,5 +1,6 @@
 import { defineManifest } from "@crxjs/vite-plugin";
 import packageJson from "../package.json";
+import {locales} from "./locales/data.js";
 
 const { version } = packageJson;
 
@@ -16,6 +17,7 @@ export default defineManifest(async () => ({
     description: packageJson.description,
     version: `${major}.${minor}.${patch}`,
     version_name: version,
+    default_locale: locales[0],
     icons: {
         "16": "src/assets/icons/icon-16.png",
         "32": "src/assets/icons/icon-32.png",

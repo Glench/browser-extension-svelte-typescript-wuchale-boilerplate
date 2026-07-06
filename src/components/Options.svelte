@@ -1,5 +1,6 @@
 <script lang="ts">
     import { type Writable } from "svelte/store";
+    import { get_locale } from '../utils';
 
     interface Props {
         count: Writable<number>;
@@ -9,7 +10,7 @@
     import '../locales/main.loader.svelte.js'
 
     // you can use any state from anywhere for the locale
-    let locale = chrome.i18n.getUILanguage()
+    let locale = get_locale();
 
     let { count }: Props = $props();
 </script>
@@ -20,7 +21,7 @@
     </div>
 {:then}
     <div class="container">
-        <p>Current count: <b>{$count}</b></p>
+        <p>Current counts: <b>{$count} hi {$count}</b></p>
         <div>
             <button onclick={() => ($count -= 1)}>-</button>
             <button onclick={() => ($count += 1)}>+</button>
