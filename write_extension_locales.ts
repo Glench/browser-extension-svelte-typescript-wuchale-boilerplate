@@ -26,14 +26,9 @@ filenames.forEach((filename) => {
     const lines = content.split('\n');
     for (let i=0; i < lines.length; i++) {
       const line = lines[i];
-      if (line.startsWith('msgid')) {
-        const msgid = format_as_key(line.split('msgid "')[1].slice(0, -1))
-        if (!msgid) {
-          continue
-        }
-        extension_messages_format[msgid] = null;
-      } else if (line.startsWith('msgstr')) {
-        let msgstr = line.split('msgstr "')[1].slice(0, -1)
+      if (line.startsWith('msgstr')) {
+        // have to escape $ as a reserved identifier
+        let msgstr = line.split('msgstr "')[1].slice(0, -1).replaceAll('$', '$$$$')
         if (!msgstr) {
           continue
         }
@@ -42,27 +37,11 @@ filenames.forEach((filename) => {
         if (placeholders) {
           for (let i=0; i < placeholders?.length; ++i) {
             let match = placeholders[i]
-            msgstr = msgstr.replace(placeholders[i], `$${match[1]}$`)
+            // have to use 1-based indexing
+            msgstr = msgstr.replace(placeholders[i], `$${parseInt(match[1])+1}`)
           }
         } 
         extension_messages_format[msgid] = {message: msgstr}
-        if (placeholders) {
-          // "helloUser": {
-          //   "message": "Hello, $USER$!",
-          //   "placeholders": {
-          //     "user": {
-          //       "content": "$1",
-          //       "example": "John"
-          //     }
-          //   }
-          // }
-          extension_messages_format[msgid].placeholders = {}
-          placeholders.forEach(match => {
-            const identifier = match[1]
-            // in wuchale all identifiers are always integers
-            extension_messages_format[msgid].placeholders[identifier] = {content: '$'+(parseInt(identifier) + 1)}
-          })
-        }
       }
     }
     fs.mkdirSync(`_locales/${locale}`, {recursive: true});

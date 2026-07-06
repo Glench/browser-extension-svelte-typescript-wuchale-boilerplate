@@ -7,16 +7,6 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#~ msgid "Current count: <0/>"
-#~ msgstr "Current count: <0/>"
-
-#~ msgid "hi there!"
-#~ msgstr "hi there!"
-
-#~ msgid "Current count: <0>{0} hi {1}</0>"
-#~ msgstr "Current count: <0>{0} hi {1}</0>"
-
-#. 0.0: $count; 0.1: $count
 #: src/components/Options.svelte
-msgid "Current counts: <0>{0} hi {1}</0>"
-msgstr "Current counts: <0>{0} hi {1}</0>"
+msgid "Current count: <0/>"
+msgstr "Current count: <0/>"

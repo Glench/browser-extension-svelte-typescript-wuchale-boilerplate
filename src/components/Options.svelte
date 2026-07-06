@@ -21,7 +21,7 @@
     </div>
 {:then}
     <div class="container">
-        <p>Current counts: <b>{$count} hi {$count}</b></p>
+        <p>Current count: <b>{$count}</b></p>
         <div>
             <button onclick={() => ($count -= 1)}>-</button>
             <button onclick={() => ($count += 1)}>+</button>
