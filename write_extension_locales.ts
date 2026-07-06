@@ -47,27 +47,21 @@ filenames.forEach((filename) => {
         } 
         extension_messages_format[msgid] = {message: msgstr}
         if (placeholders) {
+          // "helloUser": {
+          //   "message": "Hello, $USER$!",
+          //   "placeholders": {
+          //     "user": {
+          //       "content": "$1",
+          //       "example": "John"
+          //     }
+          //   }
+          // }
           extension_messages_format[msgid].placeholders = {}
           placeholders.forEach(match => {
             const identifier = match[1]
             extension_messages_format[msgid].placeholders[identifier] = {content: '$'+(parseInt(identifier) + 1)}
           })
         }
-        // TODO: add placeholders
-        // msgid "Current counts: <0>{0} hi {1}</0>"
-        // "helloUser": {
-        //   "message": "Hello, $USER$!",
-        //   "placeholders": {
-        //     "user": {
-        //       "content": "$1",
-        //       "example": "John"
-        //     }
-        //   }
-        // }
-
-        // if (msgstr.contains('{0}') || msgstr.contains('<0')) {
-        //
-        // }
       }
     }
     fs.mkdirSync(`_locales/${locale}`, {recursive: true});
