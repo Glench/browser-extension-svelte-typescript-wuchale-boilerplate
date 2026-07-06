@@ -59,6 +59,7 @@ filenames.forEach((filename) => {
           extension_messages_format[msgid].placeholders = {}
           placeholders.forEach(match => {
             const identifier = match[1]
+            // in wuchale all identifiers are always integers
             extension_messages_format[msgid].placeholders[identifier] = {content: '$'+(parseInt(identifier) + 1)}
           })
         }
