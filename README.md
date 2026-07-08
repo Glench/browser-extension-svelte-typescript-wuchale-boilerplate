@@ -11,6 +11,8 @@ This is a fork of [this Chrome extension with Svelte and Typescript boilerplate]
 -   [Chrome Extensions Manifest V3](https://developer.chrome.com/docs/extensions/mv3/intro/)
 -   [Wuchale for translations](https://github.com/wuchalejs/wuchale)
 
+You can uncomment a lot of languages in `wuchale.config.js` if you'd like and then run `npm run dev` to populate the AI translations of all the languages. The template will automatically try to use the user's browser UI language if there is one, falling back to their preferred languages set in the browser, falling back to the first language defined in `wuchale.config.js`. `npm run build` will take any `.po` files generated and automatically make webextension-compatible i18n json files so you can use them in your manifest.json if desired.
+
 ## Demo
 
 ![Demo](/demo.gif)

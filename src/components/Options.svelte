@@ -10,7 +10,7 @@
     import '../locales/main.loader.svelte.js'
 
     // you can use any state from anywhere for the locale
-    let locale = get_locale();
+    let locale = await get_locale();
 
     let { count }: Props = $props();
 </script>
